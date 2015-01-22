@@ -1,0 +1,54 @@
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Obj/
+UnityGenerated/
+Library/
+Assets/UnityVS/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+save.xml
+Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll
+Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll.meta
+Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
+Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll
+UnityVS
+bonus_save.xml
+/obj
+Assets/UnityVS.meta
+<<<<<<< HEAD
+achivementList.xml
+completedAchivementList.xml
+=======
+/Assets/JMO Assets
+>>>>>>> origin/master
+Assets/JMO Assets.meta
+Assets/Resources/achivementList.xml.meta
+Assets/Resources/bonus_save.xml.meta
+Assets/Resources/completedAchivementList.xml.meta
+Assets/Resources/save.xml.meta
