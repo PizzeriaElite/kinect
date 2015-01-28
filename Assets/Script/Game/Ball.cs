@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Ball: MonoBehaviour
 {
-	public float startForce = 100;
+	public float startForce = 200;
 	public float launchDelay = 2;
 
 	private void Start()
@@ -28,7 +28,7 @@ public class Ball: MonoBehaviour
 	{
 		if (collision.collider.tag == "Player")
 		{
-			rigidbody.AddForce(transform.forward * 5, ForceMode.Impulse);
+			//rigidbody.AddForce(transform.forward * 100, ForceMode.Force);
 		}
 	}
 

@@ -10,6 +10,8 @@ public class Paddle: MonoBehaviour
 	public const int MIN_BOARD_HEIGHT = -8;
 	KinectSensor kinect = null;
 
+	public GUIText text;
+
 	private void FixedUpdate()
 	{
 
