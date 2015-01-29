@@ -12,8 +12,9 @@ using UnityEngine;
 using System;
 using System.Collections;
 
-public class KinectPointController : MonoBehaviour {
-	
+public class KinectPointController: MonoBehaviour
+{
+
 	//Assignments for a bitmask to control which bones to look at and which to ignore
 	public enum BoneMask
 	{
@@ -46,13 +47,13 @@ public class KinectPointController : MonoBehaviour {
 		Right_Leg = 0x1F0000,
 		R_Arm_Chest = Right_Arm | Spine,
 		No_Feet = All & ~(Foot_Left | Foot_Right),
-		UpperBody = Shoulder_Center | Head|Shoulder_Left | Elbow_Left | Wrist_Left | Hand_Left|
+		UpperBody = Shoulder_Center | Head | Shoulder_Left | Elbow_Left | Wrist_Left | Hand_Left |
 		Shoulder_Right | Elbow_Right | Wrist_Right | Hand_Right
-		
+
 	}
-	
+
 	public SkeletonWrapper sw;
-	
+
 	public GameObject Hip_Center;
 	public GameObject Spine;
 	public GameObject Shoulder_Center;
@@ -73,17 +74,23 @@ public class KinectPointController : MonoBehaviour {
 	public GameObject Knee_Right;
 	public GameObject Ankle_Right;
 	public GameObject Foot_Right;
-	
+
 	private GameObject[] _bones; //internal handle for the bones of the model
 	//private Vector4[] _bonePos; //internal handle for the bone positions from the kinect
-	
+
 	public int player;
 	public BoneMask Mask = BoneMask.All;
-	
+
 	public float scale = 1.0f;
-	
+
+	private void OnEnable()
+	{
+		this.sw = GameSettings.instance.sw;
+	}
+
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		//store bones in a list for easier access
 		_bones = new GameObject[(int)Kinect.NuiSkeletonPositionIndex.Count] {Hip_Center, Spine, Shoulder_Center, Head,
 			Shoulder_Left, Elbow_Left, Wrist_Left, Hand_Left,
@@ -91,24 +98,27 @@ public class KinectPointController : MonoBehaviour {
 			Hip_Left, Knee_Left, Ankle_Left, Foot_Left,
 			Hip_Right, Knee_Right, Ankle_Right, Foot_Right};
 		//_bonePos = new Vector4[(int)BoneIndex.Num_Bones];
-		
+
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		if(player == -1)
+	void Update()
+	{
+		if (player == -1)
 			return;
 		//update all of the bones positions
 		if (sw.pollSkeleton())
 		{
-			for( int ii = 0; ii < (int)Kinect.NuiSkeletonPositionIndex.Count; ii++) {
+			for (int ii = 0; ii < (int)Kinect.NuiSkeletonPositionIndex.Count; ii++)
+			{
 				//_bonePos[ii] = sw.getBonePos(ii);
-				if( ((uint)Mask & (uint)(1 << ii) ) > 0 ){
+				if (((uint)Mask & (uint)(1 << ii)) > 0)
+				{
 					//_bones[ii].transform.localPosition = sw.bonePos[player,ii];
 					_bones[ii].transform.localPosition = new Vector3(
-						sw.bonePos[player,ii].x * scale,
-						sw.bonePos[player,ii].y * scale,
-						sw.bonePos[player,ii].z * scale);
+						sw.bonePos[player, ii].x * scale,
+						sw.bonePos[player, ii].y * scale,
+						sw.bonePos[player, ii].z * scale);
 				}
 			}
 		}

@@ -9,17 +9,17 @@ using Kinect;
 public class KinectSensor : MonoBehaviour, KinectInterface {
 	//make KinectSensor a singleton (sort of)
 	private static KinectInterface instance;
-    public static KinectInterface Instance
-    {
-        get
-        {
-            if (instance == null)
-                throw new Exception("There needs to be an active instance of the KinectSensor component.");
-            return instance;
-        }
-        private set
-        { instance = value; }
-    }
+	public static KinectInterface Instance
+	{
+		get
+		{
+			if (instance == null)
+				throw new Exception("There needs to be an active instance of the KinectSensor component.");
+			return instance;
+		}
+		private set
+		{ instance = value; }
+	}
 	
 	/// <summary>
 	/// how high (in meters) off the ground is the sensor
@@ -91,7 +91,7 @@ public class KinectSensor : MonoBehaviour, KinectInterface {
 		if (KinectSensor.instance != null)
 		{
 			Debug.Log("There should be only one active instance of the KinectSensor component at at time.");
-            throw new Exception("There should be only one active instance of the KinectSensor component at a time.");
+			throw new Exception("There should be only one active instance of the KinectSensor component at a time.");
 		}
 		try
 		{
@@ -136,8 +136,8 @@ public class KinectSensor : MonoBehaviour, KinectInterface {
 			double theta = Mathf.Atan((lookAt.y+kinectCenter.y-sensorHeight) / (lookAt.z + kinectCenter.z));
 			long kinectAngle = (long)(theta * (180 / Mathf.PI));
 			NativeMethods.NuiCameraSetAngle(kinectAngle);
-			
-			//DontDestroyOnLoad(gameObject);
+
+			DontDestroyOnLoad(gameObject);
 			KinectSensor.Instance = this;
 			NativeMethods.NuiSetDeviceStatusCallback(new NuiStatusProc(), IntPtr.Zero);
 		}

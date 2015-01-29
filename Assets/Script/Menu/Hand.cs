@@ -12,7 +12,11 @@ public class Hand: MonoBehaviour
 	public GameObject paddleControllerGameObject;
 
 	private bool clickButton = false;
-	private bool wasOnScreen = false;
+
+	private void OnEnable()
+	{
+		clickButton = false;
+	}
 
 	private void FixedUpdate()
 	{
@@ -25,13 +29,11 @@ public class Hand: MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("Enter");
 		StartCoroutine(DelayClickButton());
 	}
 
 	private IEnumerator DelayClickButton()
 	{
-		Debug.Log("Coroutine");
 		yield return new WaitForSeconds(2.5f);
 		clickButton = true;
 	}
@@ -40,10 +42,9 @@ public class Hand: MonoBehaviour
 	{
 		if (clickButton)
 		{
-			other.GetComponent<Button>().Click();
 			clickButton = false;
+			other.GetComponent<Button>().Click();
 		}
-
 	}
 
 	private void OnTriggerExit(Collider other)

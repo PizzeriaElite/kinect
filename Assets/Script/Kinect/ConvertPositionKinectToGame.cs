@@ -26,7 +26,7 @@ public class ConvertPositionKinectToGame
 				return rightHandPercentBetweenHipsAndNeck * (max - min) + min;
 			}
 		}
-		return 9999;
+		return min;
 	}
 
 	public static float ConvertX(KinectPointController KPC, GameObject bodyPart, float min, float max)
@@ -52,7 +52,7 @@ public class ConvertPositionKinectToGame
 				return rightHandPercentBetweenHipsAndNeck * (max - min) + min;
 			}
 		}
-		return 9999;
+		return min;
 	}
 
 }

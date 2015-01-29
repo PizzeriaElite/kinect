@@ -5,10 +5,10 @@ using Kinect;
 public class Paddle: MonoBehaviour
 {
 	public KinectPointController pointController;
+	[HideInInspector]
 	public GameObject paddleControllerGameObject;
 	public const int MAX_BOARD_HEIGHT = 8;
 	public const int MIN_BOARD_HEIGHT = -8;
-	KinectSensor kinect = null;
 
 	public GUIText text;
 
