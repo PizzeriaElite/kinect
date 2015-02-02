@@ -7,4 +7,12 @@ public class ButtonPlayMainMenu: Button
 	{
 		Application.LoadLevel("NbPlayer");
 	}
+
+	private void Update()
+	{
+		if (Input.GetKey(KeyCode.Space))
+		{
+			Application.LoadLevel("Niveau1");
+		}
+	}
 }

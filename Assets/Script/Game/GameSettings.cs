@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameSettings: MonoBehaviour
 {
-	public static int nbPlayer;
+	public static int nbPlayer = 1;
 	public static Side playerOne;
 	public static Side playerTwo;
 	public SkeletonWrapper sw;

@@ -12,7 +12,10 @@ public class DisplayColor: MonoBehaviour
 
 	private void OnEnable()
 	{
-		devOrEmu = GameSettings.instance.sw.gameObject.GetComponent<DeviceOrEmulator>();
+		if (devOrEmu == null)
+		{
+			devOrEmu = GameSettings.instance.sw.gameObject.GetComponent<DeviceOrEmulator>();
+		}
 	}
 
 	// Use this for initialization

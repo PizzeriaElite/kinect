@@ -28,7 +28,27 @@ public class Ball: MonoBehaviour
 	{
 		if (collision.collider.tag == "Player")
 		{
-			//rigidbody.AddForce(transform.forward * 100, ForceMode.Force);
+			rigidbody.AddForce(Vector3.forward * 50, ForceMode.Impulse);
+		}
+	}
+
+	private void Update()
+	{
+		if (transform.eulerAngles.y <= 90 && transform.eulerAngles.y > 45)
+		{
+			transform.eulerAngles = new Vector3(0, 45, 0);
+		}
+		else if (transform.eulerAngles.y < 135 && transform.eulerAngles.y > 90)
+		{
+			transform.eulerAngles = new Vector3(0, 135, 0);
+		}
+		else if (transform.eulerAngles.y <= 270 && transform.eulerAngles.y > 225)
+		{
+			transform.eulerAngles = new Vector3(0,225, 0);
+		}
+		else if (transform.eulerAngles.y <= 315 && transform.eulerAngles.y > 270)
+		{
+			transform.eulerAngles = new Vector3(0, 315, 0);
 		}
 	}
 

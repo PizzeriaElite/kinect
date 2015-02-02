@@ -85,7 +85,10 @@ public class KinectPointController: MonoBehaviour
 
 	private void OnEnable()
 	{
-		this.sw = GameSettings.instance.sw;
+		if (sw == null)
+		{
+			this.sw = GameSettings.instance.sw;
+		}
 	}
 
 	// Use this for initialization
