@@ -4,44 +4,66 @@ using System.Collections;
 public class Game: MonoBehaviour
 {
 	[SerializeField]
-	private GameObject leftHandPlayerOne = null;
+	private GameObject leftHandPlayer1 = null;
 	[SerializeField]
-	private GameObject rightHandPlayerOne = null;
+	private GameObject rightHandPlayer1 = null;
 	[SerializeField]
-	private GameObject leftHandPlayerTwo = null;
+	private GameObject leftHandPlayer2 = null;
 	[SerializeField]
-	private GameObject rightHandPlayerTwo = null;
+	private GameObject rightHandPlayer2 = null;
 	[SerializeField]
-	private Paddle playerOne = null;
+	private Paddle player1 = null;
 	[SerializeField]
-	private Paddle playerTwo = null;
+	private Paddle player2 = null;
+
+	private FrontClap frontClapPlayer1;
+	private FrontClap frontClapPlayer2;
 
 	private void OnEnable()
 	{
+		frontClapPlayer1 = new FrontClap(leftHandPlayer1.GetComponentInParent<KinectPointController>());
+		frontClapPlayer2 = new FrontClap(leftHandPlayer2.GetComponentInParent<KinectPointController>());
+
 		if (GameSettings.nbPlayer == 1)
 		{
-			playerOne.paddleControllerGameObject = leftHandPlayerOne;
-			playerTwo.paddleControllerGameObject = rightHandPlayerOne;
+			player2.kpc = player1.kpc;
+			player1.paddleControllerGameObject = leftHandPlayer1;
+			player2.paddleControllerGameObject = rightHandPlayer1;
 		}
 		else if (GameSettings.nbPlayer == 2)
 		{
 			if (GameSettings.playerOne == Side.Right)
 			{
-				playerOne.paddleControllerGameObject = rightHandPlayerOne;
+				player1.paddleControllerGameObject = rightHandPlayer1;
 			}
 			else
 			{
-				playerOne.paddleControllerGameObject = leftHandPlayerOne;
+				player1.paddleControllerGameObject = leftHandPlayer1;
 			}
 
 			if (GameSettings.playerTwo == Side.Right)
 			{
-				playerTwo.paddleControllerGameObject = rightHandPlayerTwo;
+				player2.paddleControllerGameObject = rightHandPlayer2;
 			}
 			else
 			{
-				playerTwo.paddleControllerGameObject = leftHandPlayerTwo;
+				player2.paddleControllerGameObject = leftHandPlayer2;
 			}
+		}
+	}
+
+	private void Update()
+	{
+		if (player1.nbShrinkAttack > 0 && frontClapPlayer1.Check())
+		{
+			player1.nbShrinkAttack--;
+			player2.Shrink();
+		}
+
+		if (player2.nbShrinkAttack > 0 && frontClapPlayer2.Check())
+		{
+			player2.nbShrinkAttack--;
+			player1.Shrink();
 		}
 	}
 }

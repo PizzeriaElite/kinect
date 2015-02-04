@@ -11,20 +11,8 @@ public class ConvertPositionKinectToGame
 			float minKinect = KPC.Hip_Center.transform.localPosition.y;
 			float maxKinect = KPC.Shoulder_Center.transform.localPosition.y;
 
-			float rightHandPercentBetweenHipsAndNeck = ((handPositionY - minKinect)) / (maxKinect - minKinect);
+			return Convert(handPositionY, minKinect, maxKinect, min, max);
 
-			if (rightHandPercentBetweenHipsAndNeck <= 0)
-			{
-				return min;
-			}
-			else if (rightHandPercentBetweenHipsAndNeck >= 1)
-			{
-				return max;
-			}
-			else
-			{
-				return rightHandPercentBetweenHipsAndNeck * (max - min) + min;
-			}
 		}
 		return min;
 	}
@@ -33,26 +21,33 @@ public class ConvertPositionKinectToGame
 	{
 		if (KPC.sw.trackedPlayers[0] != -1)
 		{
-			float handPositionX = bodyPart.transform.position.x;
-			float minKinect = KPC.Shoulder_Left.transform.position.x;
-			float maxKinect = KPC.Shoulder_Right.transform.position.x;
-
-			float rightHandPercentBetweenHipsAndNeck = ((handPositionX - minKinect)) / (maxKinect - minKinect);
-
-			if (rightHandPercentBetweenHipsAndNeck <= 0)
-			{
-				return min;
-			}
-			else if (rightHandPercentBetweenHipsAndNeck >= 1)
-			{
-				return max;
-			}
-			else
-			{
-				return rightHandPercentBetweenHipsAndNeck * (max - min) + min;
-			}
+			return Convert(bodyPart.transform.position.x, KPC.Shoulder_Left.transform.position.x, KPC.Shoulder_Right.transform.position.x, min, max);
 		}
 		return min;
+	}
+
+	private static float Convert(float handPosition, float minKinect, float maxKinect, float min, float max)
+	{
+		float rightHandPercentBetweenHipsAndNeck = 0;
+		float diffKinect = (maxKinect - minKinect);
+
+		if (diffKinect != 0)
+		{
+			rightHandPercentBetweenHipsAndNeck = ((handPosition - minKinect)) / diffKinect;
+		}
+
+		if (rightHandPercentBetweenHipsAndNeck <= 0)
+		{
+			return min;
+		}
+		else if (rightHandPercentBetweenHipsAndNeck >= 1)
+		{
+			return max;
+		}
+		else
+		{
+			return rightHandPercentBetweenHipsAndNeck * (max - min) + min;
+		}
 	}
 
 }

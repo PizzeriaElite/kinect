@@ -4,12 +4,17 @@ using System.Collections;
 
 public class test: MonoBehaviour
 {
-	public Text textTest;
-	public GameObject bodyPart;
+	FrontClap clap;
 
-
+	private void OnEnable()
+	{
+		clap = new FrontClap(GetComponent<KinectPointController>());
+	}
 	void Update()
 	{
-		textTest.text = bodyPart.transform.position.x.ToString();
+		if (clap.Check())
+		{
+			Debug.Log("Clap");
+		}
 	}
 }
