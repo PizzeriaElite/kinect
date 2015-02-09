@@ -16,13 +16,13 @@ public class Game: MonoBehaviour
 	[SerializeField]
 	private Paddle player2 = null;
 
-	private FrontClap frontClapPlayer1;
-	private FrontClap frontClapPlayer2;
+	//private FrontClap frontClapPlayer1;
+	//private FrontClap frontClapPlayer2;
 
 	private void OnEnable()
 	{
-		frontClapPlayer1 = new FrontClap(leftHandPlayer1.GetComponentInParent<KinectPointController>());
-		frontClapPlayer2 = new FrontClap(leftHandPlayer2.GetComponentInParent<KinectPointController>());
+		//frontClapPlayer1 = new FrontClap(player1.kpc);
+		//frontClapPlayer2 = new FrontClap(player2.kpc);
 
 		if (GameSettings.nbPlayer == 1)
 		{
@@ -52,18 +52,20 @@ public class Game: MonoBehaviour
 		}
 	}
 
-	private void Update()
+	private void FixedUpdate()
 	{
-		if (player1.nbShrinkAttack > 0 && frontClapPlayer1.Check())
-		{
-			player1.nbShrinkAttack--;
-			player2.Shrink();
-		}
+		//frontClapPlayer1.Check();
 
-		if (player2.nbShrinkAttack > 0 && frontClapPlayer2.Check())
-		{
-			player2.nbShrinkAttack--;
-			player1.Shrink();
-		}
+		//if (player1.nbShrinkAttack > 0 && frontClapPlayer1.Check())
+		//{
+		//	player1.nbShrinkAttack--;
+		//	player2.Shrink();
+		//}
+
+		//if (player2.nbShrinkAttack > 0 && frontClapPlayer2.Check())
+		//{
+		//	player2.nbShrinkAttack--;
+		//	player1.Shrink();
+		//}
 	}
 }

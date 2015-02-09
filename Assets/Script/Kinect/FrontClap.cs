@@ -4,6 +4,7 @@ using System;
 
 public class FrontClap: KinectGesture
 {
+	protected const float EXPIRE_TIME = 0.8f;
 	private FCSegment1A seg1A = new FCSegment1A();
 	private FCSegment1B seg1B = new FCSegment1B();
 	private FCSegment2 seg2 = new FCSegment2();
@@ -27,16 +28,25 @@ public class FrontClap: KinectGesture
 			}
 			else
 			{
-				time += Time.deltaTime;
-				if (time >= EXPIRE_TIME)
+				if (!seg1A.Check(kpc) && !seg1B.Check(kpc))
 				{
-					Debug.Log("Reset");
-					Reset();
+					time += Time.deltaTime;
+					if (time >= EXPIRE_TIME)
+					{
+						Debug.Log("Reset");
+						Reset();
+					}
 				}
+				else
+				{
+					time = 0;
+				}
+
 			}
 		}
 		else if (seg1A.Check(kpc) || seg1B.Check(kpc))
 		{
+			Debug.Log("Segment1");
 			segment1 = true;
 		}
 
@@ -54,11 +64,12 @@ public class FCSegment1A: Segment
 {
 	public bool Check(KinectPointController kpc)
 	{
+		Vector3 shoulderRight = kpc.Shoulder_Right.transform.position;
 		Vector3 shoulder = kpc.Shoulder_Center.transform.position;
 		Vector3 handLeft = kpc.Hand_Left.transform.position;
 		Vector3 handRight = kpc.Hand_Right.transform.position;
 
-		if (handLeft.z > shoulder.z && handRight.z > shoulder.z)
+		if (handRight.x < shoulderRight.x && handLeft.z > shoulder.z && handRight.z > shoulder.z)
 		{
 			float halfChest = kpc.Spine.transform.position.y + ((shoulder.y - kpc.Spine.transform.position.y) / 2);
 			if (handRight.y > shoulder.y && handLeft.y < halfChest)
@@ -74,11 +85,12 @@ public class FCSegment1B: Segment
 {
 	public bool Check(KinectPointController kpc)
 	{
+		Vector3 shoulderLeft = kpc.Shoulder_Left.transform.position;
 		Vector3 shoulder = kpc.Shoulder_Center.transform.position;
 		Vector3 handLeft = kpc.Hand_Left.transform.position;
 		Vector3 handRight = kpc.Hand_Right.transform.position;
 
-		if (handLeft.z < shoulder.z && handRight.z < shoulder.z)
+		if (handLeft.x > shoulderLeft.x && handLeft.z < shoulder.z && handRight.z < shoulder.z)
 		{
 			float halfChest = kpc.Spine.transform.position.y + ((shoulder.y - kpc.Spine.transform.position.y) / 2);
 			if (handLeft.y > shoulder.y && handRight.y < halfChest)

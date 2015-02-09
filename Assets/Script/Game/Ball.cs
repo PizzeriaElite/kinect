@@ -28,7 +28,7 @@ public class Ball: MonoBehaviour
 	{
 		if (collision.collider.tag == "Player")
 		{
-			rigidbody.AddForce(rigidbody.velocity * 1.2f, ForceMode.Impulse);
+			//rigidbody.AddForce(rigidbody.velocity * 1.2f, ForceMode.Impulse);
 		}
 	}
 

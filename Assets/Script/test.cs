@@ -12,9 +12,6 @@ public class test: MonoBehaviour
 	}
 	void Update()
 	{
-		if (clap.Check())
-		{
-			Debug.Log("Clap");
-		}
+		clap.Check();
 	}
 }
