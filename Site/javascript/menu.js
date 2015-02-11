@@ -13,6 +13,11 @@ document.write('\
 							Billets\
 						</li>\
 						<li>\
+							<a href="29012015.html">29 janvier 2015</a>\
+							<a href="01022015.html">1 février 2015</a>\
+							<a href="02022015.html">2 février 2015</a>\
+							<a href="04022015.html">4 février 2015</a>\
+							<a href="05022015.html">5 février 2015</a>\
 							<a href="09022015.html">9 février 2015</a>\
 						</li>\
 					</ul>\

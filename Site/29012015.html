@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf8">
+		<title>Billet du 29 janvier 2015</title>
+		<link href="./styles/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="./styles/pastie.css" rel="stylesheet" type="text/css">
+		<link href="./styles/custom.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="brand"><img src="./img/kinect_logo.png" alt="Kinect Logo"> <span>Détection de mouvement</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="fluid-container sidebar-right">
+				<script src="./javascript/menu.js"></script>
+				<section class="fluid-content-right well post">
+					
+					<h1>Billet du 29 février 2015</h1>
+					<h2>Résultats des recherches de la journée</h2>
+					<ul>
+						<li>Sélection de la main dominante du joueur</li>
+						<li>Utilisation d’un « wrapper » pour le SDK de Microsoft</li>						
+					</ul>
+
+					<h2>Sélection de la main dominante du joueur</h2>
+					<p>Chaque joueur peut maintenant sélectionner la main avec laquelle il jouera. On détecte premièrement les deux joueurs qui seront reliés à la partie et on leur permet ensuite de lever la main qui sera utilisée pour contrôler les palettes.</p>
+
+					<img src="./img/29012015.png">
+
+					<h2>Utilisation d’un « wrapper » pour le SDK de Microsoft</h2>
+
+					<p>Le « wrapper » actuellement utilisé pour intégrer le SDK de Microsoft dans Unity est assez complet, mais ne permet pas la détection de la forme de la main. Nous voulons pouvoir détecter si la main est fermée ou ouverte (gestuelle appelée « grip »), mais le paquet inclus ne le permet pas. Plusieurs possibilités s’offrent à nous :</p>
+
+					<ul>
+						<li>Recommencer le projet sur Visual Studio avec Win Form ou WPF</li>
+						<li>Essayer d’intégrer OpenNI et NiTE</li>	
+						<li>Trouver un « wrapper » plus complet</li>					
+					</ul>
+
+					<p>Évidemment, nous ne pouvons pas recommencer le projet au complet. Nous sommes donc tombés sur un <a href="https://www.assetstore.unity3d.com/en/?gclid=Cj0KEQiAuremBRCbtr-1qJnKi-4BEiQAh0x08GLSEBtR44HIGXmHqUJIUsqc_l6dYEebkndOX3Zyv0oaAgr88P8HAQ#!/content/10492">projet payant </a>dans l’« Asset Store » de Unity incluant un exemple de gestuelle « agripper ». Il s’agit d’un autre projet du professeur Rumen Filkov, servant d’extra aux techniques explorées auparavant.</p>
+
+					<p>Le projet étant payant, nous avons envoyé un courriel à M.Filkov pour demander l’utilisation du projet gratuite dans le cadre d’apprentissage de la recherche. Nous pourrions ainsi ajouter des fonctionnalités à notre projet grâce au « wrapper » amélioré que M.Filkov offre.</p>
+
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
+

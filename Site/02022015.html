@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf8">
+		<title>Billet du 2 février 2015</title>
+		<link href="./styles/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="./styles/pastie.css" rel="stylesheet" type="text/css">
+		<link href="./styles/custom.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="brand"><img src="./img/kinect_logo.png" alt="Kinect Logo"> <span>Détection de mouvement</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="fluid-container sidebar-right">
+				<script src="./javascript/menu.js"></script>
+				<section class="fluid-content-right well post">
+					
+					<h1>Billet du 2 février 2015</h1>
+					<h2>Résultats des recherches de la journée</h2>
+					<ul>
+						<li>Tentative d’intégration du « grip » dans le projet</li>	
+						<li>Début du code des gestuelles</li>					
+					</ul>
+
+					<h2>Tentative d’intégration du « grip » dans le projet</h2>
+					<p>Pierre-Olivier a tenté d’intégrer le code du grip dans le jeu Pong à l’aide du code obtenu lors 29 janvier dernier.</p>
+
+					<p>Les résultats sont peu concluants. Plusieurs approches ont été prises. Nous avons premièrement tenté d’utiliser tout simplement le « wrapper » de M. Rumen Filkov. Lorsqu’utilisé conjointement avec le « wrapper » d’origine utilisé pour notre jeu (voir le billet du 26 janvier 2015), celui-ci tente de réinitialiser la Kinect. En réalité, les deux « wrappers » doivent initialiser la Kinect afin de pouvoir être utilisés. La machine doit être initialisée par chacune des librairies, sinon, les autres méthodes ne seront pas fonctionnelles. Il y a donc automatiquement un conflit.</p>
+
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
+
