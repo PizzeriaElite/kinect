@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf8">
+		<title>Proposition de recherche</title>
+		<link href="./styles/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="./styles/pastie.css" rel="stylesheet" type="text/css">
+		<link href="./styles/custom.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="brand"><img src="./img/kinect_logo.png" alt="Kinect Logo"> <span>Détection de mouvement</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="fluid-container sidebar-right">
+				<section class="fluid-sidebar">
+					<ul class="nav list well">
+						<li class="nav-header">
+							Pages
+		            </li>
+						<li>
+							<a href="proposition_recherche.html">Proposition de recherche</a>
+						</li>
+					</ul>
+					<ul class="nav list well">
+						<li class="nav-header">
+							Billets
+						</li>
+						<li>
+							
+						</li>
+					</ul>
+				</section>
+				<section class="fluid-content-right well post">
+					<h1>Détection de mouvement avec la Kinect</h1>
+					<h2>1 Le sujet</h2>
+
+					<p>	En 2010, Microsoft sortit la Kinect, un appareil connecté à la Xbox 360 intégrant la reconnaissance de mouvement en trois dimensions aux jeux vidéo. La Kinect permit une toute nouvelle approche à la façon dont on joue et ouvrit une multitude de possibilités pour les développeurs de l’industrie.</p>
+
+					<p>Le but de la recherche sera d’identifier les fonctionnalités et les capacités de la Kinect pour utilisation dans les jeux vidéo.</p>
+
+					<p>Le développement des capacités de la Kinect permettrait de ne plus avoir besoin d’utiliser de manette ou d’améliorer l’expérience avec manette déjà existante. On pourrait ainsi contrôler en partie ou en totalité l’action avec des gestuelles.</p>
+
+					<p>Présentement, la Kinect est principalement utilisée pour jouer à des jeux vidéo avec la Xbox 360 et la Xbox One. Elle peut aussi être utilisée avec un ordinateur sur la plateforme Windows et peut donc être utilisée dans n’importe quel domaine où la reconnaissance de mouvement est pertinente, comme la réalité augmentée, la santé ou la sécurité.</p>
+
+					<p>Nous connaissons aussi les capacités de la Kinect, l’ayant nous-mêmes déjà utilisée pour jouer. La Kinect permet la détection de profondeur d’une image, la détection de couleur, la détection de mouvement, la reconnaissance vocale. Pour la capture de mouvement en général, nous prévoyons apprendre la théorie tout au long de la recherche.</p>
+
+					<h2>2 L’enjeu</h2>
+
+					<p>	Le projet permettra d’acquérir plusieurs connaissances propres à la capture de mouvements. Les aspects explorés regroupent la détection d’un mouvement, de sa direction et de sa profondeur, en plus de la reconnaissance d’un motif en gestuelles. De plus, il sera nécessaire de maîtriser la détection d’un corps ou d’une partie spécifique d’un corps. Finalement, nous verrons l’intégration de ces concepts dans une application contrôlée par caméra.</p>
+
+					<p>La capture de mouvement est un concept de plus en plus présent dans la vie quotidienne, prouvant la pertinence de la recherche. La technologie avance rapidement et offre de plus en plus de possibilités pour les développeurs et les utilisateurs. Aujourd’hui, la capture de mouvement fait partie de téléphones intelligents, de consoles de jeux vidéo, de systèmes de domotiques, etc. Cette technologie voit un progrès constant, comme perçu avec la Kinect qui en est maintenant à sa deuxième itération.</p>
+
+					<p>La recherche doit permettre une implémentation simple, rapide et efficace de la Kinect dans un moteur de jeu. Elle doit aussi faciliter l’exploitation des ressources offertes par la Kinect et par son kit de développement, en plus d’identifier le potentiel de la caméra (des fonctionnalités supplémentaires inconnues pour l’instant qui pourraient être implémentées dans le prototype).</p>
+
+					<p>La capture de mouvement est un point central de la réalité augmentée. La Kinect étant accessible au grand public, il sera possible de développer de nouvelles applications récréatives ou éducatives contrôlées par le mouvement. La Kinect pourrait avoir plusieurs utilités, autant comme caméra de surveillance pour poupon que pour un jeu vidéo. Il y a donc plusieurs applications futures possibles à coût raisonnable.</p>
+
+					<p>Cette recherche est donc souhaitée non seulement pour son utilisation en jeu vidéo, offrant une nouvelle expérience aux joueurs, mais aussi pour d’autres domaines tels que la santé, permettant d’offrir des services auparavant impossibles. Autant pour le design d’application avec capture de mouvements que pour l’exploitation même de la Kinect, la recherche ouvre des portes pour du développement futur.</p>
+
+					<h2>3 Les objectifs</h2>
+
+					<ul>
+						<li>Détecter une personne</li>
+						<li>Détecter deux personnes différentes en même temps sans conflit</li>
+						<li>Détecter les mouvements de la main </li>
+						<li>Bouger la palette en fonction de la position de la main</li>
+						<li>Pouvoir détecter 2 personnes différentes en même temps</li>
+						<li>Jouer à deux sur la même caméra</li>
+						<li>Naviguer dans le menu avec la main</li>
+						<li>Afficher la position de la main du joueur</li>
+					</ul>
+
+					<h2>4 La méthodologie</h2>
+
+					<p>Afin de suivre la progression et l’efficacité de la recherche, celle-ci sera menée par prototype. Tout au long de la recherche, nous aurons donc une application des résultats concrète et pratique.</p>
+
+					<p>Le prototype sera conçu avec Unity3D. Il s’agit d’un Pong qui devra intégrer les fonctionnalités de capture de mouvement de la Kinect. Dans cette version de Pong, le premier joueur à effectuer sept buts gagnera la partie. L’intérêt du prototype sera dans le contrôle des menus et des palettes de jeu, le tout étant contrôlé par mouvements de bras. Il pourra être joué par un seul ou deux joueurs, chacun contrôlant une palette avec sa main. La palette se déplacera selon la position de la main du joueur. La navigation dans les menus intégrera aussi la gestion de mouvements de type “swipe”. Le projet nécessitera un exemplaire de la Kinect (pour 360, pour Windows ou pour Windows V2) en plus d’un PC avec le système d’exploitation Windows.</p>
+
+					<p>Le but du prototype sera d’expérimenter avec les types de contrôle par mouvement offerts par la Kinect. Il devra cibler autant la détection de position que la détection de mouvement et de profondeur. Il permettra donc d’exploiter l’essentiel des fonctionnalités offertes par la machine et de les intégrer à une application concrète.</p>
+
+					<h2>5 Les incertitudes</h2>
+
+					<p>À ce stade de la recherche, nous ne connaissons pas les méthodes de capture de mouvement. Il faut qu’un mouvement soit adapté au jeu de manière naturelle. Il peut y avoir une certaine marge d’erreur entre le mouvement et son interprétation.</p>
+
+					<p>Nous avons aussi quelques doutes pour le multijoueur. Nous devrons nous informer sur  la différenciation des mouvements de deux joueurs. Il faut conserver nos deux joueurs, mêmes si ceux-ci se croisent ou entrent en conflit avec leur environnement.</p>
+
+					<h2>6 Les limites</h2>
+
+					<p>La Kinect offre la possibilité de faire de la reconnaissance vocale et la détection de couleurs, mais dû à la contrainte temporelle, ces aspects ne seront pas traités lors de cette recherche.</p>
+
+					<h2>7 Les ressources</h2>
+
+					<ol type="A">
+						<li>Matérielles
+							</br>
+							<ul>
+								<li>La Kinect pour XBOX 360</li>
+								<li>Un ordinateur</li>
+							</ul>
+						</li>
+
+						<li>Logicielles
+							</br>
+							<ul>
+								<li>Le système d’exploitation Windows 7 ou 8</li>
+								<li><a href="http://unity3d.com/unity/download/archive">Unity3D 4.6.1</a></li>
+								<li><a href="http://www.microsoft.com/en-ca/download/details.aspx?id=40278">Le SDK de Kinect for Windows ver.1.8</a></li>
+								<li><a href="http://wiki.etc.cmu.edu/unity3d/index.php/Microsoft_Kinect_-_Microsoft_SDK">Le packet de Kinect pour Unity3D ver.1.7</a></li>
+								<li><a href="http://www.microsoft.com/en-ca/download/details.aspx?id=40276">Le toolkit de Kinect pour développeurs Windows 1.8</a></li>
+							</ul>
+						</li>
+						<li>Informationnelles
+							</br>
+							<ul>
+								<li><a href="http://msdn.microsoft.com/en-us/library/hh855347.aspx">Documentation officielle sur le SDK de Kinect for Windows ver.1.8</a></li>
+								<li><a href="https://www.youtube.com/watch?v=rcrIzCyv50U">Vidéo de la preuve de concept d’un Pong contrôlé avec la Kinect</a></li>
+								<li><a href="http://wiki.etc.cmu.edu/unity3d/index.php/Microsoft_Kinect_-_Microsoft_SDK#Integrating_with_Unity">Fichiers pour l’intégration du SDK de Kinect for Windows ver.1.7 dans Unity</a></li>
+								<li><a href="https://www.youtube.com/watch?v=BZEBuGiJkws">Vidéo tutoriel de l’implémentation de la Kinect et de son SDK sur un poste de travail</a></li>
+								<li><a href="https://www.assetstore.unity3d.com/en/#!/content/7747">Exemples d’intégration de la Kinect dans Unity</a></li>
+								<li><a href="http://pterneas.com/2014/01/27/implementing-kinect-gestures/">Exemple simple d’implémentation des mouvements de bras simples avec la Kinect dans une application</a></li>
+								<li><a href="http://blogs.msdn.com/b/eternalcoding/archive/2011/07/04/gestures-and-tools-for-kinect.aspx">Tutoriel d’implémentation de gestuelles avec la main pour la Kinect dans une application</a></li>				
+							</ul>
+						</li>
+					</ol>	
+
+						<h2>8 Échéancier</h2>
+
+						<table>							
+								<tr>
+									<th width="58px">Périodes</th>
+									<th width="20px">Temps prévu</th>
+									<th>Descriptions</th>
+									<th width="58px">Responsables</th>
+								</tr>
+								<tr>
+									<td>26 janvier</td>
+									<td>3h</td>
+									<td>Recherche de documentation sur la Kinect et sur la capture de mouvements</td>
+									<td>PR et POB</td>
+								</tr>		
+								<tr>
+									<td>28 janvier</td>
+									<td>3h</td>
+									<td>Création du prototype de Pong sans capture de mouvements</td>
+									<td>PR et POB</td>
+								</tr>	
+								<tr>
+									<td>29 janvier</td>
+									<td>4h</td>
+									<td>Tests avec la Kinect et Unity3D pour la reconnaissance des mouvements</td>
+									<td>PR et POB</td>
+								</tr>		
+								<tr>
+									<td>2 février</td>
+									<td>4h</td>
+									<td>Programmation de la détection des mains</td>
+									<td>PR et POB</td>
+								</tr>
+								<tr>
+									<td>4 février</td>
+									<td>3h</td>
+									<td>Liaison des contrôles du jeu avec le positionnement de la main.</td>
+									<td>PR et POB</td>
+								</tr>
+								<tr>
+									<td>5 février</td>
+									<td>3h</td>
+									<td>Programmation d’un gestionnaire de gestuelles.</td>
+									<td>PR et POB</td>
+								</tr>
+								<tr>
+									<td>9 février</td>
+									<td>4h</td>
+									<td>Suite de la programmation d’un gestionnaire de gestuelles</td>
+									<td>PR et POB</td>
+								</tr>
+								<tr>
+									<td>11 février</td>
+									<td>3h</td>
+									<td>Ajout de gestuelles spécifiques au gestionnaire</td>
+									<td>PR et POB</td>
+								</tr>
+								<tr>
+									<td>12 février</td>
+									<td>3h</td>
+									<td>Liaison des gestuelles aux contrôles du jeu</td>
+									<td>PR et POB</td>
+								</tr>
+								<tr>
+									<td>16 février</td>
+									<td>4h</td>
+									<td>Publication de la recherche sur le site</td>
+									<td>PR et POB</td>
+								</tr>
+								<tr>
+									<td>18 février</td>
+									<td>3h</td>
+									<td>Préparation de la présentation orale</td>
+									<td>PR et POB</td>
+								</tr>		
+								<tr>
+									<td>19 février</td>
+									<td>3h</td>
+									<td>Correction et ajustements à la documentation</td>
+									<td>PR et POB</td>
+								</tr>	
+								<tr>
+									<td>23 février</td>
+									<td>3h</td>
+									<td>Présentation finale du projet</td>
+									<td>PR et POB</td>
+								</tr>				
+						</table>
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
+
