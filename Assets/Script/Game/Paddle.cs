@@ -11,17 +11,9 @@ public class Paddle: MonoBehaviour
 	public const int MIN_BOARD_HEIGHT = -8;
 
 	public int nbShrinkAttack = 1;
-	private FrontClap frontClap;
-
-	private void Start()
-	{
-		frontClap = new FrontClap(kpc);
-	}
 
 	private void FixedUpdate()
 	{
-		frontClap.Check();
-
 		float posZHand = ConvertPositionKinectToGame.ConvertY(kpc, paddleControllerGameObject, MIN_BOARD_HEIGHT, MAX_BOARD_HEIGHT);
 
 		rigidbody.transform.localPosition = new Vector3(rigidbody.transform.localPosition.x, rigidbody.transform.localPosition.y, posZHand);
@@ -29,13 +21,15 @@ public class Paddle: MonoBehaviour
 
 	public void Shrink()
 	{
-		transform.localScale = new Vector3(1, 1, 1);
+		Debug.Log("Shrink");
+		transform.localScale = new Vector3(1.5f, 1, 1);
 		StartCoroutine(Expand());
 	}
 
 	private IEnumerator Expand()
 	{
 		yield return new WaitForSeconds(5);
+		Debug.Log("Expand");
 		transform.localScale = new Vector3(3, 1, 1);
 	}
 
