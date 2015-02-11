@@ -21,6 +21,9 @@ public class Game: MonoBehaviour
 
 	private void OnEnable()
 	{
+		Instantiate(GameSettings.instance.skin1, new Vector3(-12, 4, -2), Quaternion.Euler(new Vector3(-90, 180, 0)));
+		((GameObject)Instantiate(GameSettings.instance.skin2, new Vector3(12, 4, -2), Quaternion.Euler(new Vector3(-90, 180, 0)))).GetComponent<KinectModelControllerV2>().player = 1;
+
 		frontClapPlayer1 = new FrontClap(player1.kpc);
 		frontClapPlayer2 = new FrontClap(player2.kpc);
 

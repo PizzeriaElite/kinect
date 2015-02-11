@@ -90,6 +90,13 @@ public class KinectModelControllerV2: MonoBehaviour
 	private Vector3 _hipRight; //right vector of the hips
 	private Vector3 _chestRight; //right vectory of the chest
 
+	private void OnEnable()
+	{
+		if (sw == null)
+		{
+			this.sw = GameSettings.instance.sw;
+		}
+	}
 
 	// Use this for initialization
 	void Start()

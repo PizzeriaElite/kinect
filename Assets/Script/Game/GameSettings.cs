@@ -6,8 +6,8 @@ public class GameSettings: MonoBehaviour
 	public static int nbPlayer = 1;
 	public static Side playerOne;
 	public static Side playerTwo;
-	public static GameObject skin1;
-	public static GameObject skin2;
+	public GameObject skin1;
+	public GameObject skin2;
 	public SkeletonWrapper sw;
 
 	public static GameSettings instance = null;
@@ -24,6 +24,6 @@ public class GameSettings: MonoBehaviour
 
 public enum Side
 {
-	Left, 
+	Left,
 	Right
 }

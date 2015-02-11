@@ -4,17 +4,17 @@ using System.Collections;
 public class SkinSelection: MonoBehaviour
 {
 	[SerializeField]
-	private GameObject[] skins;
+	public GameObject[] skins;
 
 	private GameObject[] skins1;
 	private GameObject[] skins2;
 
-	private  Vector3 posDefault = new Vector3(99, 99, 99);
-	private  Vector3 pos1 = new Vector3(-35, -15, 50);
-	private  Vector3 pos2 = new Vector3(35, -15, 50);
+	private Vector3 posDefault = new Vector3(99, 99, 99);
+	private Vector3 pos1 = new Vector3(-35, -15, 50);
+	private Vector3 pos2 = new Vector3(35, -15, 50);
 
-	private int player1Skin = 0;
-	private int player2Skin = 0;
+	public int player1Skin = 0;
+	public int player2Skin = 0;
 
 	private void Start()
 	{
