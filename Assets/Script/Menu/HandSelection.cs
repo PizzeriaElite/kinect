@@ -26,7 +26,7 @@ public class HandSelection: MonoBehaviour
 	private void Start()
 	{
 		Instantiate(GameSettings.instance.skin1, new Vector3(-5, -2f, -5), Quaternion.Euler(new Vector3(0, 180, 0)));
-		((GameObject)Instantiate(GameSettings.instance.skin2, new Vector3(5, -2, -5), Quaternion.identity)).GetComponent<KinectModelControllerV2>().player = 1;
+		((GameObject)Instantiate(GameSettings.instance.skin2, new Vector3(5, -2, -5), Quaternion.Euler(new Vector3(0, 180, 0)))).GetComponent<KinectModelControllerV2>().player = 1;
 	}
 
 	private void Update()

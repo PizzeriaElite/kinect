@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf8">
+		<title>Billet du 1 février 2015</title>
+		<link href="./styles/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="./styles/pastie.css" rel="stylesheet" type="text/css">
+		<link href="./styles/custom.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="brand"><img src="./img/kinect_logo.png" alt="Kinect Logo"> <span>Détection de mouvement</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="fluid-container sidebar-right">
+				<script src="./javascript/menu.js"></script>
+				<section class="fluid-content-right well post">
+					<h1>Billet du 26 janvier 2015</h1>
+
+					<video id="vid_log" width="700" height="400" controls>
+					<source src="./video/Log_28_01_2015.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					
+					<h2>Résultats des recherches de la journée</h2>
+					<ul>
+						<li>Récupération du code du jeu Pong</li>
+						<li>Intégration de la Kinect dans Unity</li>
+						<li>Intégration du contrôle par mouvement</li>
+						<li>Gestion de deux joueurs simultanés</li>
+					</ul>
+					<h2>Récupération du code du jeu Pong</h2>
+					<p>
+						L'intérêt du prototype de Pong se trouvant dans l'intégration de la Kinect, nous avons décidé de récupérer le code d'un Pong déjà existant. Le code a été écrit par Philippe Proulx, professeur en jeu vidéo au Cégep de Ste-Foy et a été récupéré avec son consentement (Un gros merci pour son aide!). Bien sûr, le code nécessite plusieurs ajustements pour permettre l'intégration de la Kinect. Il y a donc beaucoup de modifications et de refactorisation à effectuer.
+					</p>
+					
+					<h2>Intégration de la Kinect dans Unity</h2>
+					<p>
+						La première étape pour l'utilisation de la Kinect est son intégration dans l'environnement de développement de Unity. La caméra n'étant pas compatible par défaut, il a donc été nécessaire d'utiliser un package créé au préalable.
+						Ce package a pour effet d'émuler le comportement de base de la Kinect offert par Microsoft.
+						
+						Le package est disponible <a href="http://wiki.etc.cmu.edu/unity3d/index.php/Microsoft_Kinect_-_Microsoft_SDK">ici</a>.
+						
+						Il offre la gestion des articulations et des os dans un squelette détecté. On peut gérer jusqu'à deux squelettes en simultané et la détection de six corps.
+					</p>
+					<div align="center">
+						<img src="./img/point_man.png" alt="Les articulations détectées par la Kinect"  title="Les articulations détectées par la Kinect">
+						<img src="./img/point_man_example.png" alt="Les articulations détectées par la Kinect - Source: http://www.codeproject.com/KB/dotnet/KinectGettingStarted/7.png" title="Les articulations détectées par la Kinect - Source: http://www.codeproject.com/KB/dotnet/KinectGettingStarted/7.png">
+					</div>
+					
+					<h2>Intégration du contrôle par mouvement</h2>
+					<p>
+						Une fois la kinect fonctionnelle dans Unity, nous avons pu tester le déplacement d'une palette avec la main. L'algorithme prend en compte la distance entre l'épaule et les hanches pour créer un ratio avec la position de la main droite.
+					
+						<img src="./img/logique_pong.jpg" alt="Le rapport entre les proportions du joueur et le Pong"  title="Le rapport entre les proportions du joueur et le Pong">
+						
+						Ce ratio est alors réutilisé pour déterminer un point vertical dans le jeu. Par exemple, si notre main se situe à 60% en hauteur verticale entre notre épaule et nos hanches, la palette sera à une hauteur équivalant à 60% de l'écran de jeu.
+					</p>
+					
+					<h2>Gestion de deux joueurs simultanés</h2>
+					<p>
+						La Kinect peut gérer les articulations de deux personnes. Nous pouvons techniquement contrôler le jeu avec n'importe quelle partie du corps de un ou deux joueurs.
+						
+						Par exemple:
+						<ul>
+							<li>La main gauche du joueur 1 contre la main droite du joueur 2</li>
+							<li>La main gauche du joueur 1 contre la main droite du joueur 1</li>
+							<li>La genoux gauche du joueur 1 contre le coude gaughe du joueur 2</li>
+							<li>...</li>
+						</ul>
+						
+						<a href="#vid_log">Voir le vidéo pour un exemple d'une partie à deux joueurs.</a>
+					</p>
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
+

@@ -362,6 +362,8 @@ ol {
 }
 li {
   line-height: 18px;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+font-size: 14px;
 }
 ul.unstyled {
   margin-left: 0;
