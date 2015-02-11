@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf8">
+		<title>Billet du 9 février 2015</title>
+		<link href="../styles/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="../styles/pastie.css" rel="stylesheet" type="text/css">
+		<link href="../styles/custom.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="brand"><img src="../img/kinect_logo.png" alt="Kinect Logo"> <span>Détection de mouvement</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="fluid-container sidebar-right">
+				<script src="../javascript/menu.js"></script>
+				<section class="fluid-content-right well post">
+					
+					<h1>Billet du 09 février 2015</h1>
+					<h2>Résultats des recherches de la journée</h2>
+					<ul>
+						<li>Fin de l'implémentation du clap</li>						
+					</ul>
+
+					<h2>Implémentation du clap</h2>
+					<p>L’implémentation du clap est terminée. Après beaucoup de test et débogage, nous avons trouvé pourquoi le clap était reconnu dans notre scène de test, mais pas dans le jeu. En fait, nous n’avions pas pris en compte que les donnés de la Kinect étaient mis dans un objet de la scène et donc, en fonction de l’orientation de notre scène, les axes de la Kinect avec le jeu pouvaient changer. Donc, dans notre scène test l’axe des x était l’axe des x de la Kinect, mais dans la scène de jeu c’était l’axe des z. Nous avons changé nos variables de position globale pour des variables de position locale.</p>
+
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
+
