@@ -5,7 +5,7 @@ public class ButtonPlayMainMenu: Button
 {
 	public override void Click()
 	{
-		Application.LoadLevel("NbPlayer");
+		Application.LoadLevel("SkinSelection");
 	}
 
 	private void Update()

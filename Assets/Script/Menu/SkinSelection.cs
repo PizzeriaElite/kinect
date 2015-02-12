@@ -33,7 +33,9 @@ public class SkinSelection: MonoBehaviour
 		for (int i = 0; i < skins.Length; i++)
 		{
 			skins1[i] = (GameObject)Instantiate(skins[i], posDefault, Quaternion.Euler (new Vector3(0, 180,0)));
+			
 			skins2[i] = (GameObject)Instantiate(skins[i], posDefault, Quaternion.Euler (new Vector3(0, 180,0)));
+			skins2[i].GetComponent<KinectModelControllerV2>().player = 1;
 		}
 
 		skins1[0].transform.position = pos1;

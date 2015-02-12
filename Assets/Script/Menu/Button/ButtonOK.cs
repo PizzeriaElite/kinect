@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ButtonMainMenu: Button
+public class ButtonOK: Button
 {
 	[SerializeField]
 	private SkinSelection skinSelection = null;
@@ -10,6 +10,6 @@ public class ButtonMainMenu: Button
 	{
 		GameSettings.instance.skin1 = skinSelection.skins[skinSelection.player1Skin];
 		GameSettings.instance.skin2 = skinSelection.skins[skinSelection.player2Skin];
-		Application.LoadLevel("MainMenu");
+		Application.LoadLevel("NbPlayer");
 	}
 }
