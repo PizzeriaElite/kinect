@@ -93,14 +93,12 @@ public class SwipeGesture: KinectGesture
 		if (swipeSegmentEnd.Check (kpc,primarySwipeHand) && swipeEndGestureType == swipeGestureType) 
 		{
 			swipeGestureState = GestureState.Done;
-			Debug.Log(swipeGestureType);
 		}
 	}
 
 	private void ResetGesture()
 	{
 		swipeGestureState = GestureState.Calibrating;
-		Debug.Log ("Calibrating");
 		time = 0;
 	}
 
