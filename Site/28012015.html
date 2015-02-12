@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="utf8">
-		<title>Billet du 1 février 2015</title>
+		<title>Billet du 28 janvier 2015</title>
 		<link href="./styles/bootstrap.css" rel="stylesheet" type="text/css">
 		<link href="./styles/pastie.css" rel="stylesheet" type="text/css">
 		<link href="./styles/custom.css" rel="stylesheet" type="text/css">
@@ -20,60 +20,41 @@
 			<div class="fluid-container sidebar-right">
 				<script src="./javascript/menu.js"></script>
 				<section class="fluid-content-right well post">
-					<h1>Billet du 26 janvier 2015</h1>
-
-					<video id="vid_log" width="700" height="400" controls>
-					<source src="./video/Log_28_01_2015.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
+					<h1>Billet du 28 janvier 2015</h1>
 					
 					<h2>Résultats des recherches de la journée</h2>
 					<ul>
-						<li>Récupération du code du jeu Pong</li>
-						<li>Intégration de la Kinect dans Unity</li>
-						<li>Intégration du contrôle par mouvement</li>
-						<li>Gestion de deux joueurs simultanés</li>
+						<li>Intégration d’un menu fonctionnel</li>
+						<li>Tests de gestuelles</li>
+						<li>Utilisation de OpenNI et de NiTE</li>
 					</ul>
-					<h2>Récupération du code du jeu Pong</h2>
-					<p>
-						L'intérêt du prototype de Pong se trouvant dans l'intégration de la Kinect, nous avons décidé de récupérer le code d'un Pong déjà existant. Le code a été écrit par Philippe Proulx, professeur en jeu vidéo au Cégep de Ste-Foy et a été récupéré avec son consentement (Un gros merci pour son aide!). Bien sûr, le code nécessite plusieurs ajustements pour permettre l'intégration de la Kinect. Il y a donc beaucoup de modifications et de refactorisation à effectuer.
-					</p>
+
+					<h2>Intégration d’un menu fonctionnel</h2>
+					<p>Nous avons ajouté un menu pouvant être contrôlé par les mouvements de la main. Le menu permet de presser un bouton en plaçant un curseur sur celui-ci. Lorsque l’on reste immobile assez longtemps sur le bouton, on le presse et passe à la partie.</p>
+
+					<img src="./img/280120150.png">
 					
-					<h2>Intégration de la Kinect dans Unity</h2>
-					<p>
-						La première étape pour l'utilisation de la Kinect est son intégration dans l'environnement de développement de Unity. La caméra n'étant pas compatible par défaut, il a donc été nécessaire d'utiliser un package créé au préalable.
-						Ce package a pour effet d'émuler le comportement de base de la Kinect offert par Microsoft.
-						
-						Le package est disponible <a href="http://wiki.etc.cmu.edu/unity3d/index.php/Microsoft_Kinect_-_Microsoft_SDK">ici</a>.
-						
-						Il offre la gestion des articulations et des os dans un squelette détecté. On peut gérer jusqu'à deux squelettes en simultané et la détection de six corps.
-					</p>
-					<div align="center">
-						<img src="./img/point_man.png" alt="Les articulations détectées par la Kinect"  title="Les articulations détectées par la Kinect">
-						<img src="./img/point_man_example.png" alt="Les articulations détectées par la Kinect - Source: http://www.codeproject.com/KB/dotnet/KinectGettingStarted/7.png" title="Les articulations détectées par la Kinect - Source: http://www.codeproject.com/KB/dotnet/KinectGettingStarted/7.png">
-					</div>
+					<h2>Tests de gestuelles</h2>
+					<p>Des premières expérimentations ont été effectuées dans Unity pour incorporer les gestuelles dans un projet. Des exemples sont d’ailleurs disponibles sur le « Asset Store ». 
+					Le projet principal exploré est celui de Rumen Filkov, un professeur autrichien de l’<a href="http://www.fhv.at/en-fhv-portal">Université de Vorarlberg des Sciences Appliquées.</a></p>
 					
-					<h2>Intégration du contrôle par mouvement</h2>
-					<p>
-						Une fois la kinect fonctionnelle dans Unity, nous avons pu tester le déplacement d'une palette avec la main. L'algorithme prend en compte la distance entre l'épaule et les hanches pour créer un ratio avec la position de la main droite.
-						
-						Ce ration est alors réutilisé pour déterminer un point vertical dans le jeu. Par exemple, si notre main se situe à 60% en hauteur verticale entre notre épaule et nos hanches, la palette sera à une hauteur équivalant à 60% de l'écran de jeu.
-					</p>
+					<img src="./img/280120151.png">
+					<p><a href="https://www.assetstore.unity3d.com/en/?gclid=Cj0KEQiAuremBRCbtr-1qJnKi-4BEiQAh0x08GLSEBtR44HIGXmHqUJIUsqc_l6dYEebkndOX3Zyv0oaAgr88P8HAQ%23!/content/7747#!/content/7747">Lien vers le magasin</a></p>
+
+					<p>Nous avons donc exploré les possibilités de gestion des mouvements, tels que le balayement (ou « swipe ») dans quelconque direction, le saut, l’accroupissement, pousser et tirer. Une gestuelle importante est malheureusement manquante dans le projet, soit celle du « grip » (ou la fermeture et ouverture de la main).</p>
+
+					<p><a href="https:/www.youtube.com/watch?v=WbUgBqaOIs8">Vidéo des expérimentations</a></p>
+
+					<h2>Utilisation de OpenNI et de NiTE</h2>
+
+					<p><a href="http://structure.io/openni">OpenNI</a> est un logiciel open source de type « Middleware ». Il permet l’intégration facilitée de la Kinect (et autres caméras intelligentes) dans un projet. Ici, il peut être utile avec la Kinect, permettant essentiellement de récupérer les fonctionnalités offertes par la caméra dans Unity. Malheureusement, puisque Unity utilise le framework 3.5 de .NET, il ne peut intégrer le SDK de la Kinect, celui-ci étant en 4.0. Il faut donc trouver un moyen de contourner cette limite, OpenNI semblant être une bonne alternative.</p>
+
+					<p><a href="http://www.openni.ru/files/nite/index.html">NiTE</a> sert à faciliter la reconnaissance des mains, de la figure et de la profondeur et peut être utilisé conjointement avec OpenNI.</p>
+
+					<p>Nous explorons donc la possibilité d’utiliser ces « middlewares » dans notre projet, principalement pour la reconnaissance de la gestuelle de type « Grip ».</p>
+
+					<p><a href="https://www.youtube.com/watch?v=_UwPk3UeT4o">Exemple</a></p>
 					
-					<h2>Gestion de deux joueurs simultanés</h2>
-					<p>
-						La Kinect peut gérer les articulations de deux personnes. Nous pouvons techniquement contrôler le jeu avec n'importe quelle partie du corps de un ou deux joueurs.
-						
-						Par exemple:
-						<ul>
-							<li>La main gauche du joueur 1 contre la main droite du joueur 2</li>
-							<li>La main gauche du joueur 1 contre la main droite du joueur 1</li>
-							<li>La genoux gauche du joueur 1 contre le coude gaughe du joueur 2</li>
-							<li>...</li>
-						</ul>
-						
-						<a href="#vid_log">Voir le vidéo pour un exemple d'une partie à deux joueurs.</a>
-					</p>
 				</section>
 			</div>
 		</div>
