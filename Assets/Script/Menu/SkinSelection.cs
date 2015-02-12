@@ -44,12 +44,12 @@ public class SkinSelection: MonoBehaviour
 
 	private void Update()
 	{
-		if (swipePlayer1.Check())
+		if (swipePlayer1.CheckSwipe() == SwipeGestureType.Right)
 		{
 			Next(ref player1Skin, skins1, pos1);
 		}
 
-		if (swipePlayer2.Check())
+		if (swipePlayer2.CheckSwipe() == SwipeGestureType.Right)
 		{
 			Next(ref player2Skin, skins2, pos2);
 		}

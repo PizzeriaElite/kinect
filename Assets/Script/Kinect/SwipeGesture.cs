@@ -19,7 +19,7 @@ public class SwipeGesture: KinectGesture
 		
 	}
 	
-	public override bool Check()
+	public override SwipeGestureType CheckSwipe()
 	{
 		kpc.gameObject.name = swipeGestureState.ToString();
 		switch (swipeGestureState)
@@ -39,12 +39,12 @@ public class SwipeGesture: KinectGesture
 			break;
 		case GestureState.Done:
 			ResetGesture ();
-			return true;
+			return swipeGestureType;
 		}
 	
-		return false;
+		return SwipeGestureType.None;
 	}
-
+	
 	private bool IsGestureTimeOver()
 	{
 		if (time >= EXPIRE_TIME) 

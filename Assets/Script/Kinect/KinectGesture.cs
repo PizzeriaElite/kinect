@@ -19,6 +19,10 @@ public class KinectGesture
 		return false;
 	}
 
+	public virtual SwipeGestureType CheckSwipe()
+	{
+		return SwipeGestureType.None;
+	}
 
 	private bool EqualWithMargin(float f1, float f2, float margin)
 	{
