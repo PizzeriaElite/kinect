@@ -21,7 +21,6 @@ public class Paddle: MonoBehaviour
 
 	public void Shrink()
 	{
-		Debug.Log("Shrink");
 		transform.localScale = new Vector3(1.5f, 1, 1);
 		StartCoroutine(Expand());
 	}
@@ -29,7 +28,6 @@ public class Paddle: MonoBehaviour
 	private IEnumerator Expand()
 	{
 		yield return new WaitForSeconds(5);
-		Debug.Log("Expand");
 		transform.localScale = new Vector3(3, 1, 1);
 	}
 
