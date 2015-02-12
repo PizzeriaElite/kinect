@@ -6,6 +6,7 @@ document.write('\
 		            </li>\
 						<li>\
 							<a href="proposition_recherche.html">Proposition de recherche</a>\
+							<a href="description_outil.html">Description de l\'outil</a>\
 						</li>\
 					</ul>\
 					<ul class="nav list well">\

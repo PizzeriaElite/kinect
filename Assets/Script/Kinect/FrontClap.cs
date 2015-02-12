@@ -4,7 +4,7 @@ using System;
 
 public class FrontClap: KinectGesture
 {
-	protected const float EXPIRE_TIME = 1.5f;
+	protected const float EXPIRE_TIME = 0.5f;
 	private FCSegment1A seg1A = new FCSegment1A();
 	private FCSegment1B seg1B = new FCSegment1B();
 	private FCSegment2 seg2 = new FCSegment2();

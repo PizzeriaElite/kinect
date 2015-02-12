@@ -18,6 +18,9 @@ public class SkinSelection: MonoBehaviour
 
 	private void Start()
 	{
+		skins1 = new GameObject[skins.Length];
+		skins2 = new GameObject[skins.Length];
+
 		for (int i = 0; i < skins.Length; i++)
 		{
 			skins1[i] = (GameObject)Instantiate(skins[i], posDefault, Quaternion.identity);
@@ -30,19 +33,21 @@ public class SkinSelection: MonoBehaviour
 
 	private void Update()
 	{
-		if (true)
-		{
-			Next(ref player1Skin, skins1, pos1);
-		}
+		//if (true)
+		//{
+		//	Next(ref player1Skin, skins1, pos1);
+		//}
 
-		if (true)
-		{
-			Next(ref player2Skin, skins2, pos2);
-		}
+		//if (true)
+		//{
+		//	Next(ref player2Skin, skins2, pos2);
+		//}
 	}
 
 	private void Next(ref int index, GameObject[] liste, Vector3 pos)
 	{
+		liste[index].transform.position = posDefault;
+
 		if (index >= liste.Length)
 		{
 			index = 0;
@@ -53,6 +58,6 @@ public class SkinSelection: MonoBehaviour
 		}
 
 		liste[index].transform.position = pos;
-		liste[index - 1].transform.position = posDefault;
+		
 	}
 }
