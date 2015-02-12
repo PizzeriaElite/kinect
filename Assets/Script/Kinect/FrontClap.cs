@@ -60,7 +60,7 @@ public class FrontClap: KinectGesture
 
 public class FCSegment1A: Segment
 {
-	public bool Check(KinectPointController kpc)
+	public bool Check(KinectPointController kpc, PrimaryHand primaryHand = PrimaryHand.None)
 	{
 		Vector3 shoulderRight = kpc.Shoulder_Right.transform.localPosition;
 		Vector3 shoulder = kpc.Shoulder_Center.transform.localPosition;
@@ -81,7 +81,7 @@ public class FCSegment1A: Segment
 
 public class FCSegment1B: Segment
 {
-	public bool Check(KinectPointController kpc)
+	public bool Check(KinectPointController kpc, PrimaryHand primaryHand = PrimaryHand.None)
 	{
 		Vector3 shoulderLeft = kpc.Shoulder_Left.transform.localPosition;
 		Vector3 shoulder = kpc.Shoulder_Center.transform.localPosition;
@@ -104,7 +104,7 @@ public class FCSegment2: Segment
 {
 	private const float PRECISION = 0.15f;
 
-	public bool Check(KinectPointController kpc)
+	public bool Check(KinectPointController kpc, PrimaryHand primaryHand = PrimaryHand.None)
 	{
 		Vector3 handLeft = kpc.Hand_Left.transform.localPosition;
 		Vector3 handRight = kpc.Hand_Right.transform.localPosition;
