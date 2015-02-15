@@ -27,21 +27,50 @@
 
 					<h2>Objectif de l'expérimentation</h2>
 
-					<p>???</p>
+					<p>Le but de la recherche était d’identifier les fonctionnalités et les capacités de la Kinect pour son utilisation dans les jeux vidéo.</p>
+					
+					<p>Nous avons donc ciblé les objectifs suivants en fonction du but donné :</p>
+					
+					<ul>
+						<li>Détecter une personne</li>
+						<li>Détecter deux personnes différentes en même temps sans conflit</li>
+						<li>Détecter les mouvements de la main</li>
+						<li>Bouger la palette en fonction de la position de la main</li>
+						<li>Pouvoir détecter 2 personnes différentes en même temps</li>
+						<li>Jouer à deux sur la même caméra</li>
+						<li>Naviguer dans le menu avec la main</li>
+						<li>Afficher la position de la main du joueur</li>
+					</ul>
+					
+					<p>
+					Ces objectifs ont tous été remplis avec succès. Ils nous ont permis d’explorer les principes de reconnaissance de mouvements et de gestuelles.
+					</p>
 
 					<h2>Limites</h2>
 
-					<p>Notre prototype gardé la trace d'une partie de notre corps pour contrôler un objet dans le jeu comme la souris ou la palette. Il peut aussi reconnaitre des mouvements simples comme un swipe ou un clappement de main. Nous n'avons pas tenté de reconnaitre des mouvements plus complexes et nous n'essayons pas de détecter plusieurs mouvements en même temps.</p>
+					<p>Notre prototype garde la position des membres et articulations de notre corps pour contrôler un objet dans le jeu comme un curseur ou une palette. Il peut aussi reconnaitre des mouvements simples comme un balayement horizontal d’une main et un éloignement ou rapprochement vertical des deux mains. On peut aussi remettre les mouvements capturés sur un modèle et l’animer en temps réel.</p>
+					
+					<p>Le prototype ne reconnait pas les mouvements plus complexes (tels qu’un rond, pousser ou tirer) et ne permet pas la détection de plusieurs mouvements en même temps. De plus, le balayement de la main est uniquement utilisé dans les menus et l’éloignement et rapprochement dans le jeu. Nous ne pouvons donc pas confirmer que les deux mouvements marcheraient bien conjointement. Finalement, le balayement vertical n’est pas supporté.</p>
 
 					<h2>Éléments encore inconnus</h2>
 
-					<p>???</p>
+					<p>Plusieurs éléments de la capture de mouvement avec la Kinect nous restent inconnus après les expérimentations. Les expérimentations n’ont pas permis d’exploiter les fonctionnalités </p>
+					
+					<ul>
+						<li>La détection des doigts et de leurs gestuelles.</li>
+						<li>La reconnaissance faciale.</li>
+						<li>Toute fonctionnalité en dehors des limites du projet (reconnaissance vocale).</li>
+						<li>L’attribution d’identifiants aux corps sur caméras. (La Kinect permet d’attribuer un ID de squelette pour conserver la priorité de détection. Par exemple, si on quitte la caméra et retourne dans le cadre, la Kinect nous reconnaît et nous garde en mémoire.</li>
+						<li>Le near mode de la Kinect pour Windows n’a pas été exploité</li>
+					</ul>
 
 					<h2>Suivi des incertitudes</h2>
 
-					<p>Une des premières grandes incertitudes que nous avions était le multijoueur, mais il fut très facile d'implémenter ce mode. La Kinect le gère tout seule et nous envoie toutes les données séparément.</p>
-
-					<p>Notre deuxième crainte était la capture de mouvement qui fut quand même complexe. Mais, nous avons simplifié des algorithmes que nous avons trouvés et cela simplifia le processus de détection de mouvements.</p>
+					<p>Une des premières grandes incertitudes que nous avions était le multijoueur, mais il fut très facile de l’implémenter. La Kinect le gère par elle-même et nous envoie toutes les données séparément.</p>
+					
+					<p>Notre deuxième crainte était la capture de gestuelles qui fut relativement complexe. Nous nous sommes inspirés d’algorithmes déjà existants et des fonctionnalités offertes par le wrapper de Kinect pour Unity.</p>
+					
+					<p>Nous voulions aussi assurer une marge d’erreur pour les gestuelles. Celle-ci fut un peu plus complexe à identifier afin de permettre un mouvement naturel, mais avec essai-erreur, nous avons trouvé ce que nous croyons être un juste milieu.</p>
 
 					<h2>Référence</h2>
 
