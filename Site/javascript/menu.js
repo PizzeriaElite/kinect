@@ -25,6 +25,7 @@ document.write('\
 							<a href="05022015.html">5 février 2015</a>\
 							<a href="09022015.html">9 février 2015</a>\
 							<a href="11022015.html">11 février 2015</a>\
+							<a href="12022015.html">12 février 2015</a>\
 						</li>\
 					</ul>\
 				</section>\
