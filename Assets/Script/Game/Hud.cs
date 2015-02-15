@@ -16,9 +16,9 @@ public class Hud : MonoBehaviour
 	{
 		scoresText[playerId].text = (int.Parse(scoresText[playerId].text) + 1).ToString();
 		
-		if (int.Parse(scoresText[playerId].text) == 2)
+		if (int.Parse(scoresText[playerId].text) == 3)
 		{
-			//Application.LoadLevel("Fin" + playerId);
+			Application.LoadLevel("Fin" + playerId);
 		}
 	}
 }

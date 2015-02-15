@@ -7,7 +7,7 @@ public class End : MonoBehaviour
 	{
 		if (Time.timeSinceLevelLoad > 2 && (Input.GetMouseButton(0) || Input.anyKey))
 		{
-			Application.LoadLevel("Menu");
+			Application.LoadLevel("MainMenu");
 		}
 	}
 }
