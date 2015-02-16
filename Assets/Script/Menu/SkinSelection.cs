@@ -32,9 +32,9 @@ public class SkinSelection: MonoBehaviour
 
 		for (int i = 0; i < skins.Length; i++)
 		{
-			skins1[i] = (GameObject)Instantiate(skins[i], posDefault, Quaternion.Euler (new Vector3(0, 180,0)));
-			
-			skins2[i] = (GameObject)Instantiate(skins[i], posDefault, Quaternion.Euler (new Vector3(0, 180,0)));
+			skins1[i] = (GameObject)Instantiate(skins[i], posDefault, Quaternion.Euler(new Vector3(0, 180, 0)));
+
+			skins2[i] = (GameObject)Instantiate(skins[i], posDefault, Quaternion.Euler(new Vector3(0, 180, 0)));
 			skins2[i].GetComponent<KinectModelControllerV2>().player = 1;
 		}
 
@@ -44,14 +44,26 @@ public class SkinSelection: MonoBehaviour
 
 	private void Update()
 	{
-		if (swipePlayer1.CheckSwipe() == SwipeGestureType.Right)
+		SwipeGestureType swipe1 = swipePlayer1.CheckSwipe();
+		SwipeGestureType swipe2 = swipePlayer2.CheckSwipe();
+
+		if (swipe1 == SwipeGestureType.Right)
 		{
 			Next(ref player1Skin, skins1, pos1);
 		}
+		else if (swipe1 == SwipeGestureType.Left)
+		{
+			Previous(ref player1Skin, skins1, pos1);
+		}
 
-		if (swipePlayer2.CheckSwipe() == SwipeGestureType.Right)
+
+		if (swipe2 == SwipeGestureType.Right)
 		{
 			Next(ref player2Skin, skins2, pos2);
+		}
+		else if (swipe2 == SwipeGestureType.Left)
+		{
+			Previous(ref player2Skin, skins2, pos2);
 		}
 	}
 
@@ -69,6 +81,21 @@ public class SkinSelection: MonoBehaviour
 		}
 
 		liste[index].transform.position = pos;
-		
+	}
+
+	private void Previous(ref int index, GameObject[] liste, Vector3 pos)
+	{
+		liste[index].transform.position = posDefault;
+
+		if (index <= 0)
+		{
+			index = liste.Length - 1;
+		}
+		else
+		{
+			index--;
+		}
+
+		liste[index].transform.position = pos;
 	}
 }
