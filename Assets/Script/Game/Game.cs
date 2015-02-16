@@ -57,13 +57,15 @@ public class Game: MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (player1.nbShrinkAttack > 0 && frontClapPlayer1.Check())
+		//We can limit the uses of bonuses by adding these commented lines to the project.
+		//if (player1.nbShrinkAttack > 0)
+		if (frontClapPlayer1.Check())
 		{
 			player1.nbShrinkAttack--;
 			player2.Shrink();
 		}
-
-		if (player2.nbShrinkAttack > 0 && frontClapPlayer2.Check())
+		//if (player2.nbShrinkAttack > 0)
+		if (frontClapPlayer2.Check())
 		{
 			player2.nbShrinkAttack--;
 			player1.Shrink();
