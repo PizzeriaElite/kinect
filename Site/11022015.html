@@ -25,17 +25,27 @@
 					<h2>Résultats des recherches de la journée</h2>
 					<ul>
 						<li>Animation d'un personnage 3D</li>
-
 					</ul>
 
 					<h2>Animation d'un personnage 3D</h2>
 
-					<p>Philippe a téléchargé des modèles 3D dans le magasin de Unity et cherché une façon de pouvoir contrôler les modèles. Ce fut assez, puisqu'il ne faut que relier les parties du modèle avec les variables de la Kinect qui correspondent à la bonne partie du corps. Nous avons maintenant un personnage qui nous représente dans le jeu.</p>
+					<p>Philippe a téléchargé des modèles 3D dans le magasin de Unity et cherché une façon de pouvoir contrôler les modèles. Ce fut suffisant, puisqu'il faut simplement relier les parties du modèle avec les variables de la Kinect qui correspondent à la bonne partie du corps. Nous avons maintenant un personnage qui nous représente dans le jeu.</p>
 
 					<img src="./img/110220150.png">
 
-					<p>Ensuite Philippe a fait un menu pour choisir le modèle qui sera dans le jeu pour chaque joueur. Ce menu utilisera le swipe de Pierre-Olivier pour changer de modèle.</p>
+					<p>Ensuite Philippe a fait un menu pour choisir le modèle qui sera dans le jeu pour chaque joueur. Ce menu utilisera le « swipe » de Pierre-Olivier pour changer de modèle.</p>
 					
+					<h2>Fin de l’implémentation du balayement</h2>
+					
+					<p>Le balayement est fonctionnel avec une phase de « cooldown ». Voici un schéma de la fonctionnalité dans son état actuel.</p>
+					
+					<img src="./img/swipe_state.jpg">
+					
+					<p>On débute toujours par une calibration avec laquelle on attend que le joueur ait les deux bras au long de son corps. Par la suite, on vérifie s’il lève une main pour débuter un « swipe ». Le joueur doit ensuite faire passer rapidement sa main élevée entre ses hanches. S’il le fait trop lentement, il retourne en état d’attente, de même s’il abaisse la main.</p>
+					
+					<p>Une fois le mouvement terminé, on retombe en calibration et on doit remettre nos bras au long de notre corps. Ainsi, lorsque le joueur ramène son bras à la suite d’un « swipe », on n’interprète pas le mouvement de retour comme un « swipe ».</p>
+					
+					<p>Le balayement est donc prêt à être implémenté dans le menu.</p>
 				</section>
 			</div>
 		</div>

@@ -35,6 +35,12 @@
 						Your browser does not support the video tag.
 					</video>
 
+					<h2>Continuité de l’élaboration du balayement</h2>
+					
+					<p>Le balayement ou « swipe » progresse. Pierre-Olivier a ajouté la possibilité de reconnaître un balayement horizontal vers la gauche ou la droite. Le seul hic avec l’implémentation dans son état actuel est qu’il n’y a aucune gestion du mouvement de retour. Par exemple, si on balaie notre main vers la gauche, le retour de bras vers la droite recréé un nouveau balayement. Nous devrons donc ajouté une période où les mouvements après le balayement sont refusés tant que le bras ne retourne pas à son état normal (allongé sur le côté du corps).</p>
+
+					<img src="./img/simple_cooldown.png">
+
 				</section>
 			</div>
 		</div>
