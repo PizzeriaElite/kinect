@@ -9,6 +9,7 @@ document.write('\
 							<a href="devis_technique.html">Devis technique de l\'outil</a>\
 							<a href="description_outil.html">Description de l\'outil</a>\
 							<a href="code_outil.html">Code de l\'outil</a>\
+							<a href="publication.html">Publication</a>\
 						</li>\
 					</ul>\
 					<ul class="nav list well">\
