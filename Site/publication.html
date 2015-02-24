@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf8">
+		<title>Publication de recherche</title>
+		<link href="./styles/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="./styles/pastie.css" rel="stylesheet" type="text/css">
+		<link href="./styles/custom.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="brand"><img src="./img/kinect_logo.png" alt="Kinect Logo"> <span>Détection de mouvement</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="fluid-container sidebar-right">
+
+				<script src="javascript/menu.js"></script>
+
+				<section class="fluid-content-right well post">
+
+					<h1>Publication de recherche</h1>
+					<h2>Démarche expérimentale</h2>
+					<h3>Préparation</h3>
+
+					<p>Nous avons amorcé le projet en récupérant le code d’un projet fait en classe lors de la session Automne 2014. Le coeur du projet n’étant pas dans la création du Pong, mais dans l’utilisation de la Kinect, nous avons réutilisé ce projet pour faire nos premiers tests dans Unity.</p>
+
+					<p>L’intégration de la Kinect dans Unity nécessitait quelques outils nécessaires, dont un “wrapper” qui a permis d’interpréter les données envoyées par la caméra. Unity n’étant pas compatible avec .NET 4.0, nous ne pouvions utiliser les librairies officielles de Microsoft.</p>
+
+					<h3>Appropriation des fonctionnalités de la Kinect et recherche</h3>
+
+					<p>Nos premiers tests furent d’obtenir la position des membres du corps et de les transposer sur les palettes de jeu. Nous avons rapidement pu lier le mouvement vertical des palettes au mouvement vertical d’une main grâce au “wrapper”. Nous avons initialement créé un Pong un joueur qui se jouait une main contre l’autre.</p>
+
+					<p>La Kinect gère elle-même la reconnaissance de joueurs multiple en leur attribuant un identifiant. Nous avons donc simplement réutilisé cette fonction et l’avons implémentée pour créer un mode deux joueurs.</p>
+
+					<p>Afin de permettre la sélection du nombre de joueurs (puisque le testeur ne sera pas nécessairement accompagné), nous avons créé un menu rudimentaire contrôlé avec un curseur. Celui-ci se sert de la position de la main par rapport au corps.</p>
+
+					<p>Un des aspects prédominants de la recherche repose sur la reconnaissance de gestuelles. Une gestuelle est un déplacement de bras selon une forme particulière. Nous avons donc exploré des outils externes la facilitant. Des outils comme OpenNI, NiTE, des librairies de détection de doigts et un projet particulier démontrant la possibilité de détecter une main agrippée ont été explorés pendant plus d’une semaine. Nous avons conclu qu’étant donné le temps limité et pour l’aspect pédagogique des tests, il était plus pertinent de créer notre propre gestion des mouvements.</p>
+
+					<h3>Implémentation de la reconnaissance de gestuelles</h3>
+
+					<p>Nous voulions implémenter deux types de gestuelles. Le “clap” (rapprochement et éloignement vertical d’un bras sur l’autre) et le “swipe” (balayement horizontal). La première à être réalisée fut le clap qui est implémentée dans la jouabilité pour utiliser des bonus. Éloigner agrandit notre palette alors que rapprocher réduit la palette ennemie.</p>
+
+					<p>Le “swipe” fut créé avec une machine à état en tête. Même si ce “design pattern” n’a pas été implémenté, la gestuelle conserve tout de même son état afin de gérer un mouvement de retour (exemple, le retour du bras vers la droite après un “swipe” vers la gauche) et une marge d’erreur. Le “swipe” vertical a été envisagé, mais uniquement le “swipe” horizontal a été implémenté. Celui-ci permet de balayer un bras au-dessus des hanches rapidement pour faire un mouvement vers la gauche ou la droite.</p>
+
+					<h3>Finition</h3>
+					<p>Nous avons décidé qu’il serait judicieux d’implémenter le “swipe” dans les menus pour démontrer la possibilité d’utilisation de la Kinect dans un UI. Nous avons donc créé un nouveau menu et une nouvelle fonctionnalité pour utiliser ce mouvement. Un menu de sélection de personnages a été ajouté, et le personnage choisi est retrouvé dans le jeu. Celui-ci suit nos mouvements et est animé selon nos gestes.</p>
+
+					<p>Finalement, quelques descriptions de fonctionnalités ont été ajoutées dans le UI du jeu pour guider l’utilisateur et quelques modifications minimes de finition ont été faites.</p>
+
+					<h2>Acquisition de connaissances</h2>
+
+					<p>Nous avons approfondi nos connaissances sur plusieurs sujets lors de la mise en place de notre prototypage. Ces apprentissages se répartissent sur quatre points principaux:</p>
+
+					<ul>
+						<li>Le travail avec du matériel informatique récent</li>	
+						<li>L’interprétation de données brutes</li>	
+						<li>Les principes de capture de mouvement</li>	
+						<li>La reconnaissance de gestuelles et ses applications</li>						
+					</ul>	
+
+					<p>Les acquisitions sont donc le résultat de recherches, de conception et d’essais réalisés tout au long de la session d’hiver 2015.</p>
+					<h3>Le travail avec du matériel informatique récent</h3>
+
+					<p>L’utilisation de la Kinect comme outil de travail nous a permis d’apprendre comment s’adapter à un nouvel outil peu conventionnel. Même si la Kinect rejoint maintenant un large public, la presque totalité des jeux se joue avec un clavier et une souris ou une manette. Il était donc inhabituel de penser au jeu vidéo manipulé par caméra. Nous avons donc dû effectuer plusieurs heures de recherche en vue d’apprendre comment la Kinect obtenait ses données, quelles étaient les fonctionnalités qu’elle offrait et comment nous pouvions nous en servir. </p>
+
+					<p>La démarche la plus fonctionnelle fut de se faire un portrait global de l’outil avec ses fonctionnalités soulignées. Ensuite, nous avons ciblé les fonctionnalités que nous voulions exploiter. Nous avons finalement construit notre prototype de façon modulaire en incluant les fonctionnalités au fur et à mesure. Cette technique de travail nous a permis de progresser rapidement dans nos recherches.</p>
+
+					<p>Nous avons donc non seulement appris à travailler avec la Kinect, mais surtout comment approcher la nouvelle technologie dans un projet.</p>
+
+					<img src="./img/publication1.jpg" alt="image">
+
+					<h3>L’interprétation de données brutes</h3>
+
+					<p>La Kinect envoie des données non traitées aux programmes l’utilisant. Celle-ci transmet quelques informations de base, telles que la position de points sur un corps, la présence de squelettes (de corps qui sont reconnus par la caméra), le flux vidéo (l’image capturée, telle avec une caméra vidéo) et le flux audio (le son capturé). </p>
+
+					<p>Ces données ont donc dû être interprétées pour que l’on puisse les réutiliser dans notre projet. Grâce aux wrappers, nous avons pu transposer les données dans notre projet Unity afin de les réutiliser facilement. Cette transposition nous a permis de comprendre le fonctionnement de la Kinect et la signification de ses données. </p>
+					
+					<img src="./img/publication2.jpg" alt="image">
+
+					<p>Pour résumer, la Kinect envoie des données brutes qui doivent être interprétées afin d’être utilisées.</p>
+
+					<h3>Les principes de capture de mouvement</h3>
+
+					<p>L’intérêt principal du projet reposait sur la capture de mouvement. Il était nécessaire de pouvoir contrôler le jeu en bougeant, comme offert par la plupart des jeux supportant la Kinect. Nous avons donc dû utiliser les fonctionnalités offertes par les wrappers pour reconnaître les mouvements du corps. Nous pouvions relier un portrait grossier des articulations du corps dans un contrôleur en points.</p>
+
+					<img src="./img/publication3.jpg" alt="image">
+
+					<p>Ce contrôleur était animé (et donc bougeait) selon nos mouvements. On pouvait donc reconnaître différentes parties du corps et les réutiliser selon nos besoins. Nous avons donc compris la base de la capture de mouvement, notamment avec la main qui contrôle nos palettes de jeu et le curseur contrôlé avec la position de la main.</p>
+
+					<p>De plus, nous avons pu obtenir une version très rudimentaire de la capture de mouvement du corps entier. En reliant le contrôleur à un modèle, nous avons compris comment fonctionnaient les animations et leur capture de mouvement de façon simplifiée.
+						
+					<h3>La reconnaissance de gestuelles et ses applications</h3>
+
+					<p>Le dernier point soulevé en lien à nos apprentissages correspond aux techniques de reconnaissance de gestuelles. Il était beaucoup plus difficile que nous l’avions imaginé d’implémenter les gestuelles. Nous avons opté pour coder nous même nos propres gestuelles. Ainsi, nous avons pu comprendre comment fonctionnait la capture de mouvement. Par exemple, un mouvement a une position de début, plusieurs possibilités de milieu et une position de fin. </p>
+
+					<img src="./img/publication4.png" alt="image">
+
+					<p>Ces motifs sont souvent utilisés dans les jeux supportant les contrôles par mouvement. L’inclusion du balayement horizontal (voir image ci-dessus) et du clap (rapprochement ou éloignement vertical des deux bras) a permis de comprendre comment implémenter ces mouvements. De nombreuses questions ont été répondues : quelles sont les limites du mouvement; en combien de temps devons-nous le faire; quelles sont les conditions pour considérer un mouvement terminé ou commencé; etc.</p>
+
+					<h2>Difficultés rencontrées</h2>
+
+					<p>Les expérimentations avec l’outil se sont bien déroulées. Il y a eu relativement peu de problèmes étant donné la nouveauté du matériel. Bien sûr, certaines complications se sont ajoutées à notre tâche. Ces problèmes sont répartis sous deux volets, soit la recherche documentaire et les expérimentations avec l’outil.</p>
+
+					<h3>Recherche documentaire</h3>
+
+					<ul>	
+						<li>La documentation sur la Kinect est exhaustive. Il existe de nombreux documents, sites de références et sources démonstratives. Il existe plusieurs versions de la Kinect, dont la récente Kinect V2. Le dernier modèle n’utilise pas les mêmes ressources (librairies, fonctionnalités) que le modèle pour Xbox 360 que nous avons utilisé. Nous avons donc dû filtrer la documentation et les ressources utilisées, ce qui nous a limités dans nos rechercher.</li><br/>
+
+						<li>La reconnaissance de gestuelles est documentée de façon trop complexe. Il existe très peu d’exemples simples d’algorithmes. La majorité des explications se trouvaient dans des thèses universitaires incompréhensibles pour notre niveau. Nous avons donc dû créer notre propre gestion de gestuelles.</li><br/>
+
+						<li>Certaines ressources pertinentes n’étaient pas partagées, mais bien vendues. On pouvait donc trouver une solution, rechercher de nombreuses informations sur le sujet pour finalement se rendre compte que cette solution nous saurait payantes. Notre recherche était donc ralentie.</li><br/>
+					</ul>
+
+					<h3>Expérimentation</h3>
+
+					<ul>
+						<li>Pour tester la Kinect, il fallait continuellement se lever pour que la machine détecte notre corps. Par la suite, nous pouvions essayer la fonctionnalité désirée. Nous étions donc dérangés dans notre processus de réflexion. Ce problème a été réglé lorsque nous avons appris à utiliser un émulateur de Kinect qui permettait de jouer un enregistrement vidéo.</li><br/>
+
+						<li>Le “wrapper” (ensemble de librairies) utilisé pour Unity n’offrait pas toutes les fonctionnalités de la Kinect. Par exemple, elle n’offrait pas la reconnaissance de la fermeture de la main. </li><br/>
+
+						<li>Les librairies officielles ou plus avancées fonctionnaient avec .NET 4.0, alors que Unity ne supporte que .NET 3.5. Nous avons cherché pour obtenir une librairie optimale, sans succès. Nous avons donc dû rester avec le “wrapper” d’origine, perdant par le fait même quelques fonctionnalités.</li><br/>
+
+						<li>La Kinect est précise, mais a aussi ses limites. Elle a beaucoup de difficulté à reconnaître la position d’une main devant le corps. Elle fonctionne mieux lorsque la main est aux côtés du corps. Certains mouvements sont donc limités, plus particulièrement le curseur pour lequel nous devons tendre la main afin de le contrôler.</li><br/>
+
+						<li>La Kinect fonctionne difficilement dans un lieu avec peu d’espace ou de luminosité. Le lieu de travail en dehors des cours devait donc être réfléchi afin de pouvoir tester notre code.</li><br/>
+
+						<li>Il était difficile de gérer une gestuelle. Le plus compliqué était de restreindre un geste selon certaines conditions (était-ce un mouvement de retour, sommes-nous dans une autre gestuelle). Une machine à état (ou un design similaire) était donc nécessaire afin d’éviter un conflit de gestuelles.</li><br/>
+					</ul>
+				
+					<h2>Analyse des résultats</h2>
+
+					<p>Durant notre recherche et notre prototypage, nous avons obtenu de très bons résultats. En voici les résultats selon nos objectifs.</p>
+
+					<h3>Détecter une personne</h3>
+					<p>La Kinect gère cette fonctionnalité pour nous.</p>
+
+					<h3>Détecter deux personnes en même temps</h3>
+					<p>La Kinect gère cette fonctionnalité pour nous.</p>
+
+					<h3>Détecter les mouvements de la main</h3>
+					<p>Nous avons facilement réussi à garder trace de la main dans l’écran.</p>
+
+					<h3>Bouger la palette en fonction de la main</h3>
+					<p>Une fois la main détectée, nous avons facilement pu faire bouger la palette.</p>
+
+					<h3>Pouvoir jouer à deux sur la même caméra</h3>
+					<p>Nous avons facilement pu intégrer une deuxième personne dans le jeu.</p>
+
+					<h3>Naviguer dans le menu avec la main</h3>
+					<p>Nous avons réussi à faire une navigation plutôt fluide, mais c’est loin d’être parfait. Le clic de bouton n’est pas très naturel et rend la navigation entre les menus lente.</p>
+
+					<h3>Afficher la position de la main</h3>
+					<p>Nous avons réussi à afficher la main à l’écran.</p>
+
+					<p>De plus, nous avons été très surpris par la facilité d’utilisation de la Kinect et nous avons dépassé nos attentes quant aux résultats. Ce qui nous a permis d’implémenter plus de fonctionnalités que prévu. Nous avons ajouté un mouvement de balayage (Swipe) au menu, ce qui rend la sélection d’options beaucoup plus rapide. Notre implémentation du balayage est assez bonne pour que le tout soit naturel d’utilisation. Nous avons aussi ajouté une gestuelle dans le jeu. On peut faire un clap vertical pour rétrécir la palette de l’autre joueur. Le tout fonctionne très bien, on peut déplacer notre palette, faire un clap et retourner au déplacement de notre palette très facilement.</p>
+
+					<h2>Conclusion</h2>
+
+					<h3>Rappel des hypothèses</h3>
+					<p>Le but de notre recherche était de découvrir les fonctionnalités offertes par la Kinect. Nous savions qu’il était possible de transposer des mouvements pour manipuler une application et qu’il était possible de le faire à plusieurs, de manière simultanée. Nous pensions aussi que la gestion des mouvements de manière naturelle serait complexe. Finalement, nous estimions qu’il serait difficile de reconnaître les joueurs selon leurs entrées et sortis du champ de vision de la caméra.</p>
+
+					<h3>Synthèse des travaux</h3>
+					<p>Nos recherches ont donc permis la détection de mouvement et leur interprétation dans une application Unity, l’identification de gestuelles simples, la navigation dans une interface utilisateur à l’aide de capture de mouvement, l’intégration de la capture de mouvement dans l’animation d’un modèle et l’intégration de la capture de mouvement comme contrôleur dans un jeu vidéo.</p>
+
+					<h3>Pistes de recherches futures</h3>
+					<p>Si nous poussions la recherche plus loin, nous pourrions tenter de découvrir s’il est possible de détecter des mouvements plus complexes ou d’en détecter plusieurs à la fois. Nous pourrions aussi rechercher dans d’autre champ de recherche de la Kinect comme la réalité augmenté et tenté de manipuler des objets 3D dans notre monde.</p>
+
+					<h2>Bibliographie et téléchargement</h2>
+
+					<h3>Références en ligne</h3>
+										
+					<ul>
+						<li><a href="http://msdn.microsoft.com/en-us/library/hh855347.aspx">Documentation officielle sur le SDK de Kinect for Windows ver.1.8</a></li>
+						<li><a href="https://www.youtube.com/watch?v=rcrIzCyv50U">Vidéo de la preuve de concept d’un Pong contrôlé avec la Kinect</a></li>
+						<li><a href="http://wiki.etc.cmu.edu/unity3d/index.php/Microsoft_Kinect_-_Microsoft_SDK#Integrating_with_Unity">Fichiers pour l’intégration du SDK de Kinect for Windows ver.1.7 dans Unity</a></li>
+						<li><a href="https://www.youtube.com/watch?v=BZEBuGiJkws">Vidéo tutoriel de l’implémentation de la Kinect et de son SDK sur un poste de travail</a></li>
+						<li><a href="https://www.assetstore.unity3d.com/en/#!/content/7747">Exemples d’intégration de la Kinect dans Unity</a></li>
+						<li><a href="http://pterneas.com/2014/01/27/implementing-kinect-gestures/">Exemple simple d’implémentation des mouvements de bras simples avec la Kinect dans une application</a></li>
+						<li><a href="http://blogs.msdn.com/b/eternalcoding/archive/2011/07/04/gestures-and-tools-for-kinect.aspx">Tutoriel d’implémentation de gestuelles avec la main pour la Kinect dans une application</a></li>
+						<li><a href="http://channel9.msdn.com/coding4fun/kinect/">Exemples de code utilisant la Kinect</a></li>	
+						<li><a href="http://blogs.msdn.com/b/mcsuksoldev/archive/2011/08/08/writing-a-gesture-service-with-the-kinect-for-windows-sdk.aspx">Publication de blog de Microsoft expliquant comment reconnaitre les gestuelles</a></li>
+						<li><a href="http://www.kinecthacks.com/">Exemples de code, conseils et preuves de concept sur la Kinect</a></li>	
+					</ul>
+					
+					
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
+
